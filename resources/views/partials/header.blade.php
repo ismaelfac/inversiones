@@ -37,8 +37,8 @@
                                 <ul class="nav navbar-nav navbar-right">
                                     <!-- Authentication Links -->
                                     @guest
-                                        <li><a href="{{ route('login') }}">Login</a></li>
-                                        <li><a href="{{ route('register') }}">Registrarme</a></li>
+                                        <li><a href="{{ url('/login') }}">Login</a></li>
+                                        <li><a href="{{ url('/register') }}">Registrarme</a></li>
                                     @else
                                     <nav id="primary-menu">
                                         <ul class="main-menu text-center">
@@ -49,12 +49,12 @@
                                                 @if(Auth::user()->is_admin)<li><a href="{{ url('panel') }}">
                                                     Panel Administrador <span class="caret"></span>
                                                 </a></li>@endif
-                                                    <li> <a href="{{ route('logout') }}"
+                                                    <li> <a href="{{ url('/logout') }}"
                                                             onclick="event.preventDefault();
                                                                     document.getElementById('logout-form').submit();">
                                                             Salir
                                                         </a>
-                                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                                                             {{ csrf_field() }}
                                                         </form></li>
                                                 </ul>

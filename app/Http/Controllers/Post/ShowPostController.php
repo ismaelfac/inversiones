@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\Post;
+use App\Http\Controllers\Controller;
 use App\Post;
 
 class ShowPostController extends Controller

@@ -5,11 +5,7 @@
 | Panel Routes - Usuarios
 |--------------------------------------------------------------------------
 */
-Route::get('/usuarios',function(){ return 'No hay usuarios registrados.'; });
-Route::get('/usuario/{id}',function($id){ return "mostrando detalle del usuario: {$id}"; });
-Route::get('usuario/nuevo',function(){ return 'Crear usuario nuevo'; });
 
-Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('/');
 Route::get('sobre-nosotros', 'HomeController@about')->name('about');

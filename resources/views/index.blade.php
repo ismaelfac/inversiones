@@ -32,6 +32,12 @@
 
     <!-- Modernizr JS -->
     <script src="website/js/vendor/modernizr-2.8.3.min.js"></script>
+    <!-- Scripts -->
+    <script>
+        window.Laravel = <?php echo json_encode([
+            'csrfToken' => csrf_token(),
+        ]); ?>
+    </script>
 </head>
 
 <body>

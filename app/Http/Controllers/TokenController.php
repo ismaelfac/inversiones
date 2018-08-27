@@ -9,6 +9,7 @@ class TokenController extends Controller
 {
     public function create()
     {
+        dd("entro");
         return view('token.create');
     }
 
