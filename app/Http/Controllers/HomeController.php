@@ -24,7 +24,8 @@ class HomeController extends Controller
 	}
 
 	function Index(){
-		dd($properties = $this->getProperties());
+		$properties = $this->getProperties();
+		dd(json_encode($properties));
 		return view('website.content',array(
 				'user'                => $this->user,
 				'all_properties'      => $properties,

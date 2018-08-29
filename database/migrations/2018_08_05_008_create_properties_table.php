@@ -16,7 +16,7 @@ class CreatePropertiesTable extends Migration
     {
         Schema::create('properties', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('id_property');//Identificador unico de la propiedad. | no modificable
+            $table->string('id_property')->unique();//Identificador unico de la propiedad. | no modificable
             $table->string('id_company')->nullable();// Identificador unico de la empresa propietaria, puede ser de empresa propia o empresa aliada. | no modificable
             $table->string('id_user_wasi')->nullable();
             $table->integer('id_client')->unsigned();//Identificador unico del cliente asociado a la propiedad.
@@ -64,7 +64,6 @@ class CreatePropertiesTable extends Migration
             $table->string('bathrooms')->nullable();//Número de baños de la propiedad.
             $table->string('garages')->nullable();//Número de garajes de la propiedad.
             $table->string('floor')->nullable();//Número de piso en el que se encuentra la propiedad o cantidad de niveles que tiene, puede ser un valor vacío o numero de 1 a 30.
-            $table->string('stratum')->nullable();//Estrato social, usado en Colombia, ver la sección Estratos sociales.
             $table->integer('social_stratum_id')->unsigned();//Estrato social, usado en Colombia, ver la sección Estratos sociales.
             $table->foreign('social_stratum_id')->references('id')->on('neighborhoods')
                   ->onDelete('cascade')
@@ -87,11 +86,15 @@ class CreatePropertiesTable extends Migration
             $table->foreign('id_rents_type')->references('id')->on('rent_types')
                   ->onDelete('cascade')
                   ->onUpdate('cascade');//Array con las galerías de imágenes asociadas a la propiedad.
-             $table->string('zip_code')->nullable();//Código postal de la propiedad.
+            $table->string('zip_code')->nullable();//Código postal de la propiedad.
             $table->string('id_availability')->nullable();//Identificador que indica la disponibilidad de la propiedad, ver la sección Disponibilidad de la propiedad.
-            $table->string('availability_label')->nullable();//Nombre de la disponibilidad de la propiedad, ver la sección Disponibilidad de la propiedad.
+            $table->foreign('id_availability')->references('id')->on('property_availabilities')
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');//Array con las galerías de imágenes asociadas a la propiedad.
             $table->string('id_publish_on_map')->nullable();//Identificador que indica el tipo de publicación en Google maps, ver la sección Publicación en Google maps de la propiedad.
-            $table->string('publish_on_map_label')->nullable();//Nombre del tipo de publicación en Google maps, ver la sección Publicación en Google maps de la propiedad.
+            $table->foreign('id_publish_on_map')->references('id')->on('publication_google_maps')
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');//Array con las galerías de imágenes asociadas a la propiedad.
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')
                   ->onDelete('cascade')

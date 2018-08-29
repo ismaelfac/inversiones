@@ -13,12 +13,12 @@ class Property extends Model
         'id_currency','iso_currency','title','address','area',
         'unit_area_label','built_area','id_unit_built_area','unit_built_area_label',
         'maintenance_fee','sale_price','rent_price','bedrooms','bathrooms',
-        'garages','floor','stratum','observations','video','id_property_condition',
-        'property_condition_label','id_status_on_page','status_on_page_label',
-        'latitude','longitude','building_date','network_share',
-        'visits','reference','comment','id_rents_type','rents_type_label',
-        'zip_code','id_availability','availability_label','id_publish_on_map',
-        'publish_on_map_label','gallery_id','features','portals','label','user_id'
+        'garages','floor','stratum','social_stratum_id','observations','video','id_property_condition',
+        'property_condition_label','id_status_on_page',
+        'latitude','longitude','building_date',
+        'visits','reference','comment','id_rents_type',
+        'zip_code','id_availability','id_publish_on_map',
+        ,'user_id','state_page_id'
 
     ];
     protected $casts = [
